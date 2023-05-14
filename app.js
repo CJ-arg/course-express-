@@ -17,10 +17,16 @@ app.get("/", function (req, res) {
 hbs.registerPartials(__dirname + "/views/partials", function (err) {});
 
 app.get("/generic", function (req, res) {
-  res.sendFile(__dirname + "/public/generic.html");
+  res.render("generic", {
+    nombre: "Carlos Janon",
+    titulo: " generic ",
+  });
 });
 app.get("/elements", function (req, res) {
-  res.sendFile(__dirname + "/public/elements.html");
+  res.render("elements", {
+    nombre: "Carlos Janon",
+    titulo: " elements ",
+  });
 });
 app.get("*", function (req, res) {
   res.sendFile(__dirname + "/public/404.html");
