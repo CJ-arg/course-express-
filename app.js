@@ -1,4 +1,5 @@
 const express = require("express");
+const hbs = require("hbs");
 const app = express();
 const portezuelo = 8080;
 
@@ -12,6 +13,8 @@ app.get("/", function (req, res) {
     titulo: " hbs con node ",
   });
 });
+
+hbs.registerPartials(__dirname + "/views/partials", function (err) {});
 
 app.get("/generic", function (req, res) {
   res.sendFile(__dirname + "/public/generic.html");
