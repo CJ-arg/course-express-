@@ -1,7 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
-const portezuelo = 8080;
+const port = process.env.PORT;
 
 app.set("view engine", "hbs");
 //servir contenido est[atico ]
@@ -31,6 +32,6 @@ app.get("/elements", function (req, res) {
 app.get("*", function (req, res) {
   res.sendFile(__dirname + "/public/404.html");
 });
-app.listen(portezuelo, () => {
-  console.log(`Example app listening on port ${portezuelo}`);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
